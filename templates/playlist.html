@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plist.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <title>플레이리스트</title>
+</head>
+<body>
+    <div class="plist-container mx-auto px-3">
+        <h1 class="pt-3">{{ username }}님의 PICK! 리스트</h1> <!--현재 유저를 표시-->
+        <div class="grid p-3" id="card-container"> <!--js로 처리-->
+
+        </div>
+        <div>
+            <button class="backSearch mt-3" type="button" onclick=location.href="{{ url_for('searchtab') }}">검색페이지로 돌아가기</button>
+            <button class="backStart mt-2 mb-3" type="button" onclick=location.href="{{ url_for('protected') }}">시작화면으로 돌아가기</button>
+        </div>
+    </div>
+    <script> const targetUserId = "{{ user_id }}"; </script>
+    <script src="{{ url_for('static', filename='js/card.js') }}" charset="utf-8"></script>
+</body>
+</html>

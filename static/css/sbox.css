@@ -1,0 +1,77 @@
+.search-container{
+    background-color: white;
+    width: 80%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden; /*밖으로 나오는 별 자름*/
+    z-index: 1;
+}
+
+.search-container::before, .search-container::after, .star-bg{
+    content: "";
+    position: absolute;
+    background-image: url("/static/img/star.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(96%) sepia(4%) saturate(1602%) hue-rotate(67deg) brightness(101%) contrast(91%);
+    z-index: -1;
+    opacity: 0.6;
+}
+.search-container::before{
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: -60px;
+    transform: rotate(-15deg);
+}
+.search-container::after{
+    width: 150px;
+    height: 150px;
+    top: 35%;
+    right: -40px;
+    transform: rotate(20deg);
+}
+.star-bg{
+    width: 100px;
+    height: 100px;
+    bottom: 5%;
+    left: 70px;
+    transform: rotate(10deg);
+}
+
+.search-box{
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.search-txt{
+    width: 80%;
+    border-color: #CDF4D3;
+    position: relative;
+    z-index: 2;
+}
+
+.search-btn{
+    border-width: 1px;
+    background-color: #CDF4D3;
+    border-color: #CDF4D3;
+    position: relative;
+    z-index: 2;
+}
+
+.search-btn:hover, .search-btn:focus, .goStart-btn:hover, .goStart-btn:focus{
+    transform: scale(1.05);
+}
+
+p{
+    color: grey;
+}
+
+.goStart-btn{
+    color: white;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #1DB954;
+    background-color: #1DB954;
+}

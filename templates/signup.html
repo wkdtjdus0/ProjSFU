@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <title>회원가입</title>
+</head>
+<body>
+    <div class="signup-container mx-auto">
+        <div class="star-bg"></div>
+        <div class="col-6 mx-auto pt-5 text-center">
+            <img
+            src="{{ url_for('static', filename='img/headphones.png') }}"
+            alt="mainIcon"
+            class="img-fluid"
+            id="headphone" />
+        </div>
+        <h1 class="pt-5">Songs for U</h1>
+        <h4>ID와 닉네임 모두 중복되면 안됩니다!</h4>
+        <form class="pt-5" action="{{ url_for('signup') }}" method="post">
+            <input id="id-box" type="text" name="userId" placeholder="ID" required><br>
+            <input id="name-box" type="text" name="nickname" placeholder="닉네임" required><br>
+            {% if error %}
+            <div style="color: red;">{{ error }}</div>
+            {% endif %}
+            <input class="signup-btn mt-4 mb-2" type="submit" value="가입하기"><br>
+            <a href="{{ url_for('goLogin') }}">로그인으로 돌아가기</a>
+        </form>
+    </div>
+</body>
+</html>

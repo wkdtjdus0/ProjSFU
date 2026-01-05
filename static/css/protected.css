@@ -1,0 +1,102 @@
+.text-container{
+    width: 80%;
+    min-height: 100vh;
+    background-color: white;
+    position: relative;
+    overflow: hidden; /*밖으로 나오는 별 자름*/
+    z-index: 1;
+}
+
+.text-container::before, .text-container::after, .star-bg{
+    content: "";
+    position: absolute;
+    background-image: url("/static/img/star.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(96%) sepia(4%) saturate(1602%) hue-rotate(67deg) brightness(101%) contrast(91%);
+    z-index: -1;
+    opacity: 0.6;
+}
+.text-container::before{
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: -60px;
+    transform: rotate(-15deg);
+}
+.text-container::after{
+    width: 150px;
+    height: 150px;
+    top: 35%;
+    right: -40px;
+    transform: rotate(20deg);
+}
+.star-bg{
+    width: 100px;
+    height: 100px;
+    bottom: 5%;
+    left: 70px;
+    transform: rotate(10deg);
+}
+
+.logout-btn{
+    width: 25%;
+    border-width: 1px;
+    border-color: #1DB954;
+    background-color: #1DB954;
+    color: white;
+    border-radius: 6px;
+    position: relative;
+    z-index: 2;
+}
+
+h1{
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h4{
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+#start{
+    width: 80%;
+    position: relative;
+    z-index: 2;
+}
+
+.surveyStart-btn{
+    width: 80%;
+    border-width: 1px;
+    border-color: #1DB954;
+    background-color: #1DB954;
+    color: white;
+    border-radius: 6px;
+    position: relative;
+    z-index: 2;
+}
+
+.goSearch-btn{
+    width: 80%;
+    border-width: 1px;
+    border-color: #1DB954;
+    background-color: #1DB954;
+    color: white;
+    border-radius: 6px;
+    position: relative;
+    z-index: 2;
+}
+
+.logout-btn:hover, .logout-btn:focus, .surveyStart-btn:hover, .surveyStart-btn:focus, .goSearch-btn:hover, .goSearch-btn:focus{
+    transform: scale(1.03);
+}
+
+p{
+    position: relative;
+    z-index: 2;
+    color: grey;
+}

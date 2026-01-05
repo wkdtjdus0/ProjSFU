@@ -1,0 +1,73 @@
+.signup-container{
+    background-color: white;
+    width: 80%;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /*밖으로 나오는 별 자름*/
+    z-index: 1;
+}
+
+.signup-container::before, .signup-container::after, .star-bg{
+    content: "";
+    position: absolute;
+    background-image: url("/static/img/star.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(96%) sepia(4%) saturate(1602%) hue-rotate(67deg) brightness(101%) contrast(91%);
+    z-index: -1;
+    opacity: 0.6;
+}
+.signup-container::before{
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: -60px;
+    transform: rotate(-15deg);
+}
+.signup-container::after{
+    width: 150px;
+    height: 150px;
+    top: 35%;
+    right: -40px;
+    transform: rotate(20deg);
+}
+.star-bg{
+    width: 100px;
+    height: 100px;
+    bottom: 5%;
+    left: 70px;
+    transform: rotate(10deg);
+}
+
+h1{
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.signup-btn{
+    border-width: 1px;
+    border-color: #1DB954;
+    width: 45%;
+    border-radius: 6px;
+    background-color: #1DB954;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.signup-btn:hover, .signup-btn:focus{
+    transform: scale(1.03);
+}
+
+#id-box, #name-box{
+    width: 45%;
+    border-width: 1px;
+    border-color: #CDF4D3;
+    background-color: #CDF4D3;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+}

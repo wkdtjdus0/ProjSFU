@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sbox.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a8ca08851.js" crossorigin="anonymous"></script>
+    <title>검색</title>
+</head>
+<body>
+    <div class="search-container mx-auto px-3">
+        <div class="star-bg"></div>
+        <p class="pt-3">
+            나의 아이디: {{ userId }}
+            <button class="goStart-btn float-end px-2" onclick=location.href="{{ url_for('protected') }}">시작화면</button>
+        </p>
+        <form class="search-box mt-5" onsubmit="return checkUser(event)">
+            <input id="search-input" class="search-txt" type="text" name="query" placeholder="검색할 ID를 입력하세요.">
+            <button class="search-btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <script>
+        const userIds={{ user_ids | tojson }};
+        console.log("userIds from flask: ", userIds);
+
+        function checkUser(event){
+            event.preventDefault();
+            const input=document.getElementById('search-input').value.trim();
+            if(userIds.includes(input)){
+                window.location.href=`/playlist/${input}`; //${}을 쓸때 url_for 사용 못함
+            }
+            else{
+                alert("존재하지 않는 사용자 입니다.");
+            }
+        }
+    </script>
+</body>
+</html>

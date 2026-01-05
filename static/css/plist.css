@@ -1,0 +1,71 @@
+.plist-container{
+    background-color: white;
+    width: 80%;
+    min-height: 100vh;
+}
+
+.backSearch, .backStart{
+    border-width: 1px;
+    border-color: #1DB954;
+    background-color: #1DB954;
+    color: white;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.backSearch:hover, .backStart:hover, .backSearch:focus, .backStart:focus{
+    transform: scale(1.03);
+}
+
+.grid{
+    display: grid;
+    /*화면 너비에 따라 카드 자동 배치*/
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    background-color: #CDF4D3;
+}
+
+.album-wrapper{
+    position: relative;
+}
+
+.user-id{
+    color: grey;
+    top: 10px;
+    left: 10px;
+    z-index: 10; /*이미지보다 위에 오게 함*/
+    font-size: 0.7em;
+}
+
+.album-cover{
+    width: 100%;
+    aspect-ratio: 1/1; /*정사각형 유지*/
+    background-size: cover;
+    background-position: center;
+}
+
+.song-info {
+    padding: 10px;
+}
+
+.song-title{
+    color: black;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+}
+
+.song-singer{
+    font-size: 0.9em;
+    color: black;
+}
+
+.card:hover{
+    transform: scale(1.03);
+}
+
+.card{
+    color: white;
+    border: 1px;
+    padding: 10px;
+}

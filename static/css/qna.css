@@ -1,0 +1,83 @@
+#qna{
+    display: block;
+    background-color: white;
+    width: 80%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden; /*밖으로 나오는 별 자름*/
+    z-index: 1;
+}
+
+#qna::before, #qna::after, .star-bg{
+    content: "";
+    position: absolute;
+    background-image: url("/static/img/star.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(96%) sepia(4%) saturate(1602%) hue-rotate(67deg) brightness(101%) contrast(91%);
+    z-index: -1;
+    opacity: 0.6;
+}
+#qna::before{
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: -60px;
+    transform: rotate(-15deg);
+}
+#qna::after{
+    width: 150px;
+    height: 150px;
+    top: 35%;
+    right: -40px;
+    transform: rotate(20deg);
+}
+.star-bg{
+    width: 100px;
+    height: 100px;
+    bottom: 5%;
+    left: 70px;
+    transform: rotate(10deg);
+}
+
+.qBox{
+    background-color: #CDF4D3;
+    text-align: center;
+    border-radius: 6px;
+    width: 90%;
+    position: relative;
+    z-index: 2;
+}
+
+.answerlist{
+    display: block;
+    background-color: #CDF4D3;
+    width: 90%;
+    border-radius: 6px;
+    border: 0px;
+    position: relative;
+    z-index: 2;
+}
+
+.answerlist:hover, .answerlist:focus{
+    transform: scale(1.03);
+    background-color: #1DB954;
+    color: white;
+}
+
+.status{
+    height: 20px;
+    width: 80%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.statusBar{
+    height: 100%;
+    background-color:#1DB954;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+}

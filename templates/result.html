@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <title>결과</title>
+</head>
+<body>
+    <section id="result" class="mx-auto pt-5">
+        <div class="star-bg"></div>
+        <h3> 지금 {{ username }}에게 필요한 노래는? </h3>
+        <div class="resultname">
+            
+            <h5># {{finalType}} # {{mood}} # {{keyword}}</h5>
+            <div id="result-cover" style="margin-bottom:20px;">
+                <img id="album-img" src="/static/img/loading2.gif" alt="Cover">
+            <div id="track-list"></div>
+            <div class="btn-list mt-5 mb-2">
+                <button id="anotherResult-btn" type = "button">다른 결과 보기</button>
+                <button id="resultShare-btn" type = "button" onclick="kakaoShare()">내 결과 공유하기</button>
+                <button id="goSearch-btn" type = "button" onclick=location.href="{{ url_for('searchtab') }}">친구 결과 보러가기</button>
+                <button id="again-btn" type = "button" onclick=location.href="{{ url_for('survey') }}">설문 다시하기</button> 
+            </div>
+        </div>
+    </section>
+    <script>
+        const username = "{{ username }}"; // HTML 안에서 선언
+    </script>
+    <script src="{{ url_for('static', filename='js/qnaData.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/start.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/select.js') }}" charset="utf-8"></script>
+    <script> //다른 결과 보기 버튼을 누르면 페이지 새로고침됨
+        document.getElementById('anotherResult-btn').addEventListener('click', function(){
+            location.reload();
+        });
+    </script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.7/kakao.min.js"
+    integrity="sha384-tJkjbtDbvoxO+diRuDtwRO9JXR7pjWnfjfRn5ePUpl7e7RJCxKCwwnfqUAdXh53p" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/share.js') }}" charset="utf-8"></script>
+</body>
+</html>
