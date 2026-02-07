@@ -23,7 +23,8 @@
     <title>Login</title>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.5/kakao.min.js"></script>
     <script>
-    window.Kakao.init('2767fbaa28a489e0a6ec11bdc4622867');
+    //window.Kakao.init('2767fbaa28a489e0a6ec11bdc4622867');
+    window.Kakao.init('fsq1Ts7q1S9fALcHcxd2QM8upTTX0Jar');
 
     function kakaoLogin() {
       if (!window.Kakao.isInitialized()) {
@@ -31,7 +32,7 @@
         return;
       }
       window.Kakao.Auth.authorize({
-        redirectUri: 'http://127.0.0.1:5500/oauth/callback'
+        redirectUri: 'https://songs-for-you-hgbw.onrender.com/oauth/callback'
       });
     }
     </script>
