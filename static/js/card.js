@@ -24,6 +24,18 @@ function card(){
                     <div class="song-singer">${item.singer}</div>
                 </div>
             `;
+
+            //추가 클릭이벤트: 클릭하면 해당 곡 유튜브로 이동
+            card.style.cursor='pointer'; //커서 모양 변경
+            card.addEventListener('click',()=>{
+                const songQuery = `${item.title} ${item.singer}`;
+                const isMove = confirm(`'${item.title}' 곡으로 이동하겠습니까?`);
+                if(isMove){
+                    const youtubeUrl=`https://www.youtube.com/results?search_query=${encodeURIComponent(songQuery)}`;
+                    window.open(youtubeUrl, '_blank'); //새 탭에서 열기
+                }
+            });
+
             container.appendChild(card);
         });
     })

@@ -92,7 +92,7 @@ def oauth_callback():
     #카카오에서 토큰 받기
     data = {
         'grant_type': 'authorization_code',
-        'client_id': '7278fa59de7a98d5f8e095662089fec5', #'e53ec257a899fd2adc0aa192036f1967' REST API 키
+        'client_id': '7278fa59de7a98d5f8e095662089fec5', #REST API 키
         'redirect_uri': 'https://songs-for-you-hgbw.onrender.com/oauth/callback', #'http://127.0.0.1:5500/oauth/callback',
         'code': code
     }
