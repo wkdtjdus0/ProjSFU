@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <title>S4U 결과</title>
+    <script>
+        const LASTFM_API = "{{ LASTFM_API }}";
+    </script>
 </head>
 <body>
     <section id="result" class="mx-auto pt-5">
@@ -27,7 +30,7 @@
             <div id="track-list"></div>
             <div class="btn-list mt-5 mb-2">
                 <button id="anotherResult-btn" type = "button">다른 결과 보기</button>
-                <button id="resultShare-btn" type = "button" onclick="kakaoShare()">내 결과 공유하기</button>
+                <button id="resultShare-btn" type = "button" onclick="kakaoShare()">공유하기</button>
                 <button id="goSearch-btn" type = "button" onclick=location.href="{{ url_for('searchtab') }}">친구 결과 보러가기</button>
                 <button id="again-btn" type = "button" onclick=location.href="{{ url_for('protected') }}">설문 다시하기</button> 
             </div>
@@ -38,7 +41,7 @@
     </script>
     <script src="{{ url_for('static', filename='js/qnaData.js') }}" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='js/start.js') }}" charset="utf-8"></script>
-    <script type="module" src="{{ url_for('static', filename='js/select.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/select.js') }}" charset="utf-8"></script>
     <script> //다른 결과 보기 버튼을 누르면 페이지 새로고침됨
         document.getElementById('anotherResult-btn').addEventListener('click', function(){
             location.reload();
@@ -46,6 +49,6 @@
     </script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.7/kakao.min.js"
     integrity="sha384-tJkjbtDbvoxO+diRuDtwRO9JXR7pjWnfjfRn5ePUpl7e7RJCxKCwwnfqUAdXh53p" crossorigin="anonymous"></script>
-    <script type="module" src="{{ url_for('static', filename='js/share.js') }}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/share.js') }}" charset="utf-8"></script>
 </body>
 </html>

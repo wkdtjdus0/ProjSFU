@@ -1,4 +1,4 @@
-import config from "./apikey.js";
+//import config from "./apikey.js";
 
 const nickname = "{{ username }}"
 console.log("닉네임:", nickname);
@@ -11,7 +11,7 @@ const resultMood=urlParams.get('mood');
 console.log("최종 타입: ", resultType);
 console.log("최종 무드: ", resultMood);
 
-const apiKey = config.LASTFM_API;
+const apiKey = LASTFM_API;
 
 // 메인 로직을 실행하는 async 함수
 async function getAndDisplayMusic() {

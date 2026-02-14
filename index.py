@@ -205,7 +205,8 @@ def result():
     mood = request.args.get("mood") # 8.20 이후 수정한 부분
     keyword = request.args.get("keyword")
 
-    return render_template('result.html', username=username, finalType=final_type, mood=mood, keyword=keyword)
+    LASTFM_API = os.environ.get('LASTFM_API','') #render환경변수에서 api key 가져옴
+    return render_template('result.html', username=username, finalType=final_type, mood=mood, keyword=keyword, LASTFM_API=LASTFM_API)
 
 @app.route('/save_result', methods=['POST'])
 def save_result():
