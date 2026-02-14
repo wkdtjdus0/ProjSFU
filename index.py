@@ -2,13 +2,16 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify, s
 from models import db, User, TestResult
 from spotipy.oauth2 import SpotifyClientCredentials
 import requests, os, spotipy, requests, base64
+from dotenv import load_dotenv
+
+load_dotenv() #.env 파일에서 환경변수 로드
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-SPOTIFY_CLIENT_ID = 'd6956dd3c4e840e8aead776fe5854bbe'
-SPOTIFY_CLIENT_SECRET_ID = 'bb619c108b4a4b4ab641fd2ec0af8975'
+SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
+SPOTIFY_CLIENT_SECRET_ID = os.getenv('SPOTIFY_CLIENT_SECRET_ID')
 
 app.secret_key = 'my_secret_key' # session 비밀키
 BASE_DIR = os.path.dirname(os.path.abspath(__file__)) #절대경로 설정
@@ -92,7 +95,7 @@ def oauth_callback():
     #카카오에서 토큰 받기
     data = {
         'grant_type': 'authorization_code',
-        'client_id': '7278fa59de7a98d5f8e095662089fec5', #REST API 키
+        'client_id': os.getenv('KAKAO_REST_API'), #REST API 키
         'redirect_uri': 'https://songs-for-you-hgbw.onrender.com/oauth/callback', #'http://127.0.0.1:5500/oauth/callback',
         'code': code
     }
