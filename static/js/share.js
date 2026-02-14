@@ -1,4 +1,4 @@
-import config from "./apikey";
+import config from "./apikey.js";
 
 function kakaoShare(){
     if(!Kakao.isInitialized()){

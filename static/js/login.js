@@ -42,7 +42,7 @@ function logout() {
     });
 }
 
-//tempResult 관련
+//Result 관련
 fetch('/login', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
@@ -51,7 +51,7 @@ fetch('/login', {
 .then(res => res.json())
 .then(data => {
     if(data.success){
-        window.location.href = data.redirect_url;  // /tempResult 페이지로 이동
+        window.location.href = data.redirect_url;  // Result 페이지로 이동
     } else {
         alert(data.message);
     }

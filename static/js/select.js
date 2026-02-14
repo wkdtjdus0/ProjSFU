@@ -1,4 +1,4 @@
-import config from "./apikey";
+import config from "./apikey.js";
 
 const nickname = "{{ username }}"
 console.log("닉네임:", nickname);
