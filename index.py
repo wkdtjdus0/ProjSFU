@@ -206,7 +206,8 @@ def result():
     keyword = request.args.get("keyword")
 
     LASTFM_API = os.environ.get('LASTFM_API','') #render환경변수에서 api key 가져옴
-    return render_template('result.html', username=username, finalType=final_type, mood=mood, keyword=keyword, LASTFM_API=LASTFM_API)
+    KAKAO_JS_API = os.environ.get('KAKAO_JS_API','')
+    return render_template('result.html', username=username, finalType=final_type, mood=mood, keyword=keyword, LASTFM_API=LASTFM_API, KAKAO_JS_API=KAKAO_JS_API)
 
 @app.route('/save_result', methods=['POST'])
 def save_result():

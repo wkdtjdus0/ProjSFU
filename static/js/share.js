@@ -1,6 +1,6 @@
 function kakaoShare(){
     if(!Kakao.isInitialized()){
-        Kakao.init('c7242b41eaad5d31a1ff6c0de0f82f32');
+        Kakao.init(KAKAO_JS_API);
     }
     Kakao.Share.sendCustom({
         templateId: 127662,
